@@ -18,6 +18,7 @@
     "author": "DAWENS-TECH",
     "license": "MIT",
     "dependencies": {
+        "express": "^5.1.0",
         "@adiwajshing/keyed-db": "^0.2.4",
         "@ffmpeg-installer/ffmpeg": "^1.1.0",
         "@hapi/boom": "^10.0.0",
