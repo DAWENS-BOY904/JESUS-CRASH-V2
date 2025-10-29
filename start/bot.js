@@ -1,6 +1,3 @@
-// jesus-crash-v2-fixed.js
-// ✅ Bot Telegram stable & improved by Dawens 2025
-
 const fs = require('fs');
 const {
     Telegraf,
@@ -22,10 +19,6 @@ const startpairing = require('./rentbot');
 const { BOT_TOKEN } = require('./token');
     const adminFilePath = './adminID.json';
 const bannedPath = './lib2/pairing/banned.json';
-// 🔧 BOT CONFIG
-const BOT_NAME = "JESUS-CRASH-V2";
-const OWNER_NAME = "DAWENS 305";
-global.DEVELOPER = ["7011781863"];
 // Helper to format runtime duration
 const ITEMS_PER_PAGE = 10;
 const pagedListPairs = {}; // In-memory cache for each admin
@@ -138,36 +131,33 @@ bot.start((ctx) => {
   ctx.replyWithPhoto('https://files.catbox.moe/ijo0fe.png', {
     caption: `👋 Yo ${pushname},
 
-✨ Bienvenue dans JESUS-CRASH-V2 ⚙️🔥  
+✨ Bienvenue dans JESUS CRASH V2 ⚙️🔥  
 Le système hybride le plus avancé.
 
-╔═══⟪ ⚡ 𝙎𝙔𝙎𝙏È𝙈𝙀 𝘿𝙀 𝙅𝙀𝙎𝙐𝙎-𝘾𝙍𝘼𝙎𝙃 ⟫═══╗
-║ 🤖 𝗕𝗼𝘁              : ${BOT_NAME}
-║ 👑 𝗣𝗿𝗼𝗽𝗿𝗶é𝘁𝗮𝗶𝗿𝗲     : ${OWNER_NAME}
-║ 💀 𝗦𝘁𝗮𝘁𝘂𝘁           : 𝘼𝙘𝙩𝙞𝙛 & 𝙋𝙧𝙤𝙩é𝙜é
-║ ⚙️ 𝗩𝗲𝗿𝘀𝗶𝗼𝗻         : 𝟙.𝟙.𝟘 𝗕é𝘁𝗮
-║ 🕓 𝗗𝗲𝗿𝗻𝗶𝗲𝗿 𝗿𝗲𝗹𝗼𝗮𝗱 : ${new Date().toLocaleString()}
-╚════════════════════════════╝
+┏━━━⟪ 📡 𝙎𝙏𝘼𝙏𝙐𝙏 𝘿𝙐 𝙎𝙔𝙎𝙏È𝙈𝙀 ⟫━━━┓
+┃ 🤖 𝗕𝗼𝘁          : ${BOT_NAME}
+┃ 👑 𝗣𝗿𝗼𝗽𝗿𝗶é𝘁𝗮𝗶𝗿𝗲 : ${OWNER_NAME}
+┃ 🚨 𝗩𝗲𝗿𝘀𝗶𝗼𝗻     : 2.0.0
+┃ 📅 𝗗𝗮𝘁𝗲        : ${new Date().toLocaleString()}
+┗━━━━━━━━━━━━━━━━━━━━━━━━━━┛
 
-┏━━━⟪ 🧬 𝐂𝐎𝐌𝐌𝐀𝐍𝐃𝐄𝐒 𝐃𝐔 𝐂𝐎𝐍𝐓𝐑𝐎̂𝐋𝐄𝐔𝐑 ⟫━━━┓
-┃ ⚙️ /pair         → Lier un nouveau bot
-┃ 🧾 /listpair     → Accès restreint [𝑵𝒊𝒏𝒋𝒂𝒙𝒙]
-┃ ❌ /delbot       → Déconnecter une session
-┃ 🛰️ /ban       → Bannir un utilisateur / bloquer l’accès
-┃ 🧠 /unban         → Retirer le ban d’un utilisateur
-┃
- 🗑️ /delprem    → Supprimer un bot premium définitivement
-┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+╭━⟪ 🧬 𝐂𝐎𝐌𝐌𝐀𝐍𝐃𝐄𝐒 𝐉𝐄𝐒𝐔𝐒 ⟫━━━╮
+┋⬡⟣──────────────────⟢
+┋⚙️  /pair ➛ ᴄᴏɴɴᴇᴄᴛ ᴅᴇᴠɪᴄᴇ
+┋💀  /delpair ➛ ʀᴇᴍᴏᴠᴇ ᴅᴇᴠɪᴄᴇ
+┋🧾  /listpair ➛ ᴠɪᴇᴡ ᴀʟʟ ᴅᴇᴠɪᴄᴇs
+┋🚫  /ban ➛ Bannir un utilisateur
+┋🌐  /runtime ➛ ᴠɪᴇᴡ ᴜᴘᴛɪᴍᴇ
+╰─────────────╶╶···
+DAWENS n'a pas de femme😭
 
-🔗 𝗥𝗲𝘀𝗲𝗮𝘂 𝗱𝗲 𝗕𝗼𝘁𝘀 : 𝐉𝐄𝐒𝐔𝐒-𝐂𝐑𝐀𝐒𝐇 𝐍𝐄𝐓𝐖𝐎𝐑𝐊 🌐
-👁️ 𝗠𝗼𝗱𝗲 : 𝘿𝙀𝙁𝙀𝙉𝙎𝙀 𝘼𝙐𝙏𝙊 𝙊𝙉
-💫 𝗖𝗼𝗿𝗲 : 𝙃𝙖𝙘𝙠-𝙀𝙩𝙚𝙧𝙣𝙞𝙩𝙮™ :
-🔗 [DAWENS 305](https://t.me/DAWENS305_bot)`,
+📡 𝗔𝗰𝗰è𝘀 𝗮𝘂𝘅 𝗕𝗼𝘁𝘀 𝗔𝘀𝘀𝗼𝗰𝗶é𝘀 :
+🔗 [DAWENS904_bot](https://t.me/DAWENS904_bot)`,
     parse_mode: 'HTML',
     reply_markup: Markup.inlineKeyboard([
       [
         Markup.button.callback('INFO 👤', 'info_bot'),
-        Markup.button.url('🌐 telegrame', 't.me/Mr_Da5') // Remplace par ton vrai lien si tu veux
+        Markup.button.url('🌐 telegrame', 'https://t.me/dawens_boy') // Remplace par ton vrai lien si tu veux
       ]
     ])
   });
@@ -175,39 +165,36 @@ Le système hybride le plus avancé.
 bot.command('menu', (ctx) => {
   const pushname = getPushName(ctx);
 
-  ctx.replyWithPhoto('https://files.catbox.moe/0d2p7l.png', {
+  ctx.replyWithPhoto('https://files.catbox.moe/ijo0fe.png', {
     caption: `👋 Salut ${pushname},
 
-✨ Bienvenue dans JESUS-CRASH-V2 ⚙️🔥  
+✨ Bienvenue dans JESUS CRASH V2 ⚙️🔥  
 Le système hybride le plus avancé.
 
-╔═══⟪ ⚡ 𝙎𝙔𝙎𝙏È𝙈𝙀 𝘿𝙀 𝙅𝙀𝙎𝙐𝙎-𝘾𝙍𝘼𝙎𝙃 ⟫═══╗
-║ 🤖 𝗕𝗼𝘁              : ${BOT_NAME}
-║ 👑 𝗣𝗿𝗼𝗽𝗿𝗶é𝘁𝗮𝗶𝗿𝗲     : ${OWNER_NAME}
-║ 💀 𝗦𝘁𝗮𝘁𝘂𝘁           : 𝘼𝙘𝙩𝙞𝙛 & 𝙋𝙧𝙤𝙩é𝙜é
-║ ⚙️ 𝗩𝗲𝗿𝘀𝗶𝗼𝗻         : 𝟙.𝟙.𝟘 𝗕é𝘁𝗮
-║ 🕓 𝗗𝗲𝗿𝗻𝗶𝗲𝗿 𝗿𝗲𝗹𝗼𝗮𝗱 : ${new Date().toLocaleString()}
-╚════════════════════════════╝
+┏━━━⟪ 📡 𝙎𝙏𝘼𝙏𝙐𝙏 𝘿𝙐 𝙎𝙔𝙎𝙏È𝙈𝙀 ⟫━━━┓
+┃ 🤖 𝗕𝗼𝘁          : ${BOT_NAME}
+┃ 👑 𝗣𝗿𝗼𝗽𝗿𝗶é𝘁𝗮𝗶𝗿𝗲 : ${OWNER_NAME}
+┃ 🚨 𝗩𝗲𝗿𝘀𝗶𝗼𝗻     : 1.1.0
+┃ 📅 𝗗𝗮𝘁𝗲        : ${new Date().toLocaleString()}
+┗━━━━━━━━━━━━━━━━━━━━━━━━━━┛
 
-┏━━━⟪ 🧬 𝐂𝐎𝐌𝐌𝐀𝐍𝐃𝐄𝐒 𝐃𝐔 𝐂𝐎𝐍𝐓𝐑𝐎̂𝐋𝐄𝐔𝐑 ⟫━━━┓
-┃ ⚙️ /pair         → Lier un nouveau bot
-┃ 🧾 /listpair     → Accès restreint [𝑵𝒊𝒏𝒋𝒂𝒙𝒙]
-┃ ❌ /delbot       → Déconnecter une session
-┃ 🛰️ /ban       → Bannir un utilisateur / bloquer l’accès
-┃ 🧠 /unban         → Retirer le ban d’un utilisateur
-┃
- 🗑️ /delprem    → Supprimer un bot premium définitivement
-┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+╭━⟪ 🧬 𝐂𝐎𝐌𝐌𝐀𝐍𝐃𝐄𝐒 𝐉𝐄𝐒𝐔𝐒 ⟫━━━╮
+┋⬡⟣──────────────────⟢
+┋⚙️  /pair ➛ ᴄᴏɴɴᴇᴄᴛ ᴅᴇᴠɪᴄᴇ
+┋💀  /delpair ➛ ʀᴇᴍᴏᴠᴇ ᴅᴇᴠɪᴄᴇ
+┋🧾  /listpair ➛ ᴠɪᴇᴡ ᴀʟʟ ᴅᴇᴠɪᴄᴇs
+┋🚫  /ban ➛ Bannir un utilisateur
+┋🌐  /runtime ➛ ᴠɪᴇᴡ ᴜᴘᴛɪᴍᴇ
+╰─────────────╶╶···
+DAWENS n'a pas de femme😭
 
-🔗 𝗥𝗲𝘀𝗲𝗮𝘂 𝗱𝗲 𝗕𝗼𝘁𝘀 : 𝐉𝐄𝐒𝐔𝐒-𝐂𝐑𝐀𝐒𝐇 𝐍𝐄𝐓𝐖𝐎𝐑𝐊 🌐
-👁️ 𝗠𝗼𝗱𝗲 : 𝘿𝙀𝙁𝙀𝙉𝙎𝙀 𝘼𝙐𝙏𝙊 𝙊𝙉
-💫 𝗖𝗼𝗿𝗲 : 𝙃𝙖𝙘𝙠-𝙀𝙩𝙚𝙧𝙣𝙞𝙩𝙮™ :
-🔗 [DAWENS 305](t.me/DAWENS305_bot)`,
+📡 𝗔𝗰𝗰è𝘀 𝗮𝘂𝘅 𝗕𝗼𝘁𝘀 𝗔𝘀𝘀𝗼𝗰𝗶é𝘀 :
+🔗 [DAWENS904_bot](https://t.me/DAWENS904_bot)`,
     parse_mode: 'HTML',
     reply_markup: Markup.inlineKeyboard([
       [
         Markup.button.callback('INFO 👤', 'info_bot'),
-        Markup.button.url('🌐 telegrame', 't.me/Mr_Da5') // Remplace par ton vrai lien si tu veux
+        Markup.button.url('🌐 telegrame', 'https://t.me/dawens_boy') // Remplace par ton vrai lien si tu veux
       ]
     ])
   });
@@ -215,7 +202,7 @@ Le système hybride le plus avancé.
 
 // Info button
 bot.action('info_bot', (ctx) => {
-  ctx.reply('ce bot est créé par DAWENS 🧍\n abonné vous a ma chaîne pour me supporté https://t.me/+FFJtJgYILSZkNWYx');
+  ctx.reply('ce bot est créé par dawens boy 🧍\n abonné vous a ma chaîne pour me supporté https://t.me/dawens_boy');
 });
 bot.action('search_song', (ctx) => {
     userStates[ctx.from.id] = 'attend pour ton son';
@@ -226,43 +213,94 @@ bot.command('pair', async (ctx) => {
   try {
     const userId = ctx.from.id;
 
-    // 🚫 Check si itilizatè a bann
+    // Ban check
     const banned = JSON.parse(fs.readFileSync(bannedPath, 'utf-8'));
     if (banned.includes(userId)) {
       return ctx.reply('⛔ Vous êtes banni de ce service.');
     }
 
-    // 🔢 Récupérer le numéro envoyé
-    const input = ctx.message.text.split(" ")[1];
-    if (!input) {
-      return ctx.reply("❌ Veuillez fournir un numéro pour lier. Exemple : /pair 50912345678");
-    }
-
-    // 🟢 SEKIRITE: verifye si fichye pairing.json egziste
-    if (!fs.existsSync('./lib2/pairing/pairing.json')) {
-      return ctx.reply('⚠️ Aucun code trouvé. Réessayez plus tard.');
-    }
-
-    // 📄 Li fichye pairing.json la
-    const cuObj = JSON.parse(fs.readFileSync('./lib2/pairing/pairing.json', 'utf-8'));
-
-    // 🔍 Chèche nimewo a
-    const found = cuObj.find(obj => obj.number === input);
-
-    if (!found) {
-      return ctx.reply('❌ Aucun code trouvé pour ce numéro.');
-    }
-
-    // ✅ Si jwenn li — montre kòd la
-    return ctx.reply(`✅ Code pour ${input} : \`${found.code}\``, { parse_mode: 'Markdown' });
-
-  } catch (err) {
-    console.error(err);
-    ctx.reply('⚠️ Une erreur est survenue pendant la commande /pair.');
-    }
-
     // Channel membership check
+    const channelUsernames = ['@dawens_boy'];
+    let joinedAllChannels = true;
+    for (const channel of channelUsernames) {
+      try {
+        const member = await ctx.telegram.getChatMember(channel, userId);
+        if (['left', 'kicked'].includes(member.status)) {
+          joinedAllChannels = false;
+          break;
+        }
+      } catch {
+        joinedAllChannels = false;
+        break;
+      }
+    }
 
+    if (!joinedAllChannels) {
+      return ctx.reply(
+        `🚫 Accès refusé\n\nPour utiliser cette fonctionnalité, rejoins *notre chaîne officielle Telegram*.`,
+        {
+          parse_mode: 'Markdown',
+          reply_markup: {
+            inline_keyboard: [
+              [{ text: '🔗 Rejoindre @dawens_boy', url: 'https://t.me/dawens_boy' }],
+              [{ text: '✅ J\'ai rejoint', callback_data: 'check_join' }]
+            ]
+          }
+        }
+      );
+    }
+ // User joined → request TikTok photo
+  userStates[userId] = 'waiting_tiktok_photo';
+  ctx.reply('📸 Send a photo of the TikTok account you followed for verification.');
+});
+
+// Handle photo for TikTok verification
+bot.on('photo', async (ctx) => {
+  try {
+    const userId = ctx.from.id;
+
+    if (userStates[userId] === 'waiting_tiktok_photo') {
+      // Chwazi dènye foto a (pi gwo rezolisyon)
+      const photo = ctx.message.photo[ctx.message.photo.length - 1];
+      const fileId = photo.file_id;
+
+      // Kreye folder si li pa egziste
+      const dirPath = './tiktok_proofs/temp';
+      if (!fs.existsSync(dirPath)) {
+        fs.mkdirSync(dirPath, { recursive: true });
+        console.log(`Folder created: ${dirPath}`);
+      }
+
+      // Telechaje foto a
+      const fileLink = await ctx.telegram.getFileLink(fileId);
+      const response = await fetch(fileLink.href);
+      const buffer = Buffer.from(await response.arrayBuffer());
+
+      // Sove foto a
+      await fs.promises.writeFile(`${dirPath}/${userId}.jpg`, buffer);
+      console.log(`Saved TikTok proof for user ${userId} at ${dirPath}/${userId}.jpg`);
+
+      ctx.reply('✅ Verification complete! You can continue.');
+      delete userStates[userId];
+    }
+  } catch (error) {
+    console.error('Error saving TikTok photo:', error);
+    ctx.reply('❌ An error occurred while downloading the TikTok photo. Please try again.');
+  }
+});
+
+// Handle “I joined” button
+bot.action('check_join', async (ctx) => {
+  const userId = ctx.from.id;
+  const joined = await checkTelegramJoin(userId);
+
+  if (joined) {
+    await ctx.answerCbQuery('✅ You have already joined our channel, now send a photo of your TikTok.');
+    userStates[userId] = 'waiting_tiktok_photo';
+  } else {
+    await ctx.answerCbQuery('❌ You haven’t joined the channel yet.', { show_alert: true });
+  }
+});
 
     // Phone number validation
     const text = ctx.message.text.split(' ')[1];
@@ -339,7 +377,7 @@ bot.on('callback_query', async (query) => {
   const data = query.data;
 
   if (data === 'check_join') {
-    const channelUsernames = ['@Draxen_xmd'];
+    const channelUsernames = ['@dawens_boy'];
     let joinedAllChannels = true;
 
     for (const channel of channelUsernames) {
@@ -664,7 +702,7 @@ bot.command('playrrr', async (ctx) => {
     }
 });
 
-bot.on('text', async (ctx) => {
+bot.on('textffft', async (ctx) => {
     const userId = ctx.from.id;
 
     if (userStates[userId] === 'waiting_for_song') {
