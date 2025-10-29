@@ -19,14 +19,14 @@ global.creatorName = "Dawens"
 global.author = "Dawens"
 
 global.footer = "✨ ᴘᴏᴡᴇʀᴇᴅ ʙʏ *Dawens-ᴛᴇᴄʜ* 👑"
-global.version = "𝙑𝟭"
+global.version = "V2"
 global.themeemoji = '🩸'
 global.bankowner = "MOSES"
 global.location = "Haïti"
 
 //========== MÉDIAS ET LIENS ==========//
-global.thumbnail = 'https://files.catbox.moe/s5u5x5.jpg'
-global.gambar = "https://files.catbox.moe/is73bw.jpg"
+global.thumbnail = 'https://files.catbox.moe/ijo0fe.png'
+global.gambar = "https://files.catbox.moe/0d2p7l.png"
 global.link = "https://whatsapp.com/channel/0029Vb6tScFDzgTAcKNphY2i"
 
 //========== STICKERS ==========//
