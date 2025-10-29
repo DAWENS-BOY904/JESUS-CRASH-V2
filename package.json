@@ -1,6 +1,6 @@
 {
     "name": "JESUS-CRASH-V2",
-    "version": "1.0.0",
+    "version": "2.0.0",
     "description": "A multi-device WhatsApp bot with media processing, web scraping, and YouTube integration.",
     "main": "start/index.js",
     "type": "commonjs",
