@@ -1154,7 +1154,7 @@ case 'menu': {
 ┃ 👤 Utilisateur : *${m.pushName}*
 ┃ ⏱️ Uptime      : *${runtime(process.uptime())}*
 ┃ 🌐 Mode        : *${rich.public ? 'Public 🌍' : 'Privé 🔒'}*
-┃ 🧩 Version     : *1.1.0*
+┃ 🧩 Version     : *2.0.0*
 ┃ 👑 Créateur    : *DAWENS BOY*
 ┗━━━━━━━━━━━━━━━━━━┛
 
@@ -3083,7 +3083,7 @@ case 'kiss': {
   if (!isCreator) return Reply1("*Commande réservée au propriétaire du bot.*");
   try {
     const res = await axios.get('https://pikabotzapi.vercel.app/anime-nsfw/hentai-images/?apikey=anya-md&category=kissing_while_penetrated');
-    const caption = `🔞 *Voici ton image kissing_while_penetrated*\n> _✨ Nda Bot ⚙️ 𝙽𝚂𝙵𝚆_`;
+    const caption = `🔞 *Voici ton image kissing_while_penetrated*\n> _✨ JESUS CRASH V2 ⚙️ 𝙽𝚂𝙵𝚆_`;
     await rich.sendMessage(m.chat, { image: { url: res.data.image_url }, caption }, { quoted: m });
   } catch (e) {
     console.error(e);
