@@ -403,8 +403,6 @@ return buffer
     client.ev.on('creds.update', saveCreds);
     return client;
 }
-  
-launchBot();
 
 require('./bot');
 
