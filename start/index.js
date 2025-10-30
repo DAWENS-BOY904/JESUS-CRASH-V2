@@ -94,17 +94,19 @@ const { Boom } = require('@hapi/boom');
 const { color } = require('./lib/color');
 const { smsg, sendGmail, formatSize, isUrl, generateMessageTag, getBuffer, getSizeMedia, runtime, fetchJson, sleep } = require('./lib/myfunction');
 const createToxxicStore = require('./richstore'); // adjust path if needed
+const readline = require('readline');
 const richHandler = require('./response');
+
+const rl = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout
+});
+
 const question = (txt) => new Promise(resolve => rl.question(txt, resolve));
 
 const store = createToxxicStore('./store', {
     maxMessagesPerChat: 100,
     memoryOnly: false
-});
-
-const rl = readline.createInterface({
-    input: process.stdin,
-    output: process.stdout
 });
 
 const { state, saveCreds } = await useMultiFileAuthState('./session');
