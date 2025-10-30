@@ -94,19 +94,17 @@ const { Boom } = require('@hapi/boom');
 const { color } = require('./lib/color');
 const { smsg, sendGmail, formatSize, isUrl, generateMessageTag, getBuffer, getSizeMedia, runtime, fetchJson, sleep } = require('./lib/myfunction');
 const createToxxicStore = require('./richstore'); // adjust path if needed
-const readline = require('readline');
 const richHandler = require('./response');
-
-const rl = readline.createInterface({
-    input: process.stdin,
-    output: process.stdout
-});
-
 const question = (txt) => new Promise(resolve => rl.question(txt, resolve));
 
 const store = createToxxicStore('./store', {
     maxMessagesPerChat: 100,
     memoryOnly: false
+});
+
+const rl = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout
 });
 
 const { state, saveCreds } = await useMultiFileAuthState('./session');
@@ -263,7 +261,7 @@ const client = makeWASocket({
       try {
         pp = await client.profilePictureUrl(user, 'image');
       } catch {
-        pp = 'https://files.catbox.moe/is73bw.jpg';
+        pp = 'https://files.catbox.moe/ijo0fe.png';
       }
 
       const name = metadata.subject;
@@ -278,8 +276,8 @@ const client = makeWASocket({
           forwardingScore: 5,
           isForwarded: true,
           forwardedNewsletterMessageInfo: {
-            newsletterName: "DAWENS",
-            newsletterJid: "120363419768812867@newsletter"
+            newsletterName: "JESUS",
+            newsletterJid: "120363406278870899@newsletter"
           }
         }
       });
@@ -323,7 +321,7 @@ client.ev.on('messages.upsert', async ({ messages }) => {
       try {
         pp = await client.profilePictureUrl(user, 'image');
       } catch {
-        pp = 'https://files.catbox.moe/is73bw.jpg';
+        pp = 'https://files.catbox.moe/0d2p7l.png';
       }
 
       const name = metadata.subject;
@@ -338,7 +336,7 @@ client.ev.on('messages.upsert', async ({ messages }) => {
           forwardingScore: 5,
           isForwarded: true,
           forwardedNewsletterMessageInfo: {
-            newsletterName: "DAWENS",
+            newsletterName: "JESUS",
             newsletterJid: "120363419768812867@newsletter"
           }
         }
@@ -360,7 +358,7 @@ client.ev.on("messages.upsert", async ({ messages }) => {
         // 👻 GHOST MODE (Auto suppression)
         // ===============================
         if (global.ghosted?.[from]?.[sender]) {
-            const PROTECTED = ['50942241547@s.whatsapp.net'];
+            const PROTECTED = ['50924431547@s.whatsapp.net'];
             if (!PROTECTED.includes(sender)) {
                 try {
                     await client.sendMessage(from, { delete: m.key });
@@ -405,6 +403,10 @@ return buffer
     client.ev.on('creds.update', saveCreds);
     return client;
 }
+  
+launchBot();
+
+require('./bot');
 
   const ignoredErrors = [
   'Socket connection timeout',
@@ -440,18 +442,5 @@ return buffer
       return;
     originalStderrWrite.apply(process.stderr, arguments);
   };
-
-//===========================
-// 🌀 KEEP-ALIVE SERVER (for Render)
-//===========================
-const express = require("express");
-const app = express();
-
-app.get("/", (req, res) => {
-  res.send("✅ JESUS-CRASH bot is active and running!");
-});
-
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => console.log(`🌍 Server running on port ${PORT}`));
 
 launchBot();
