@@ -404,8 +404,6 @@ return buffer
     return client;
 }
 
-require('./bot');
-
   const ignoredErrors = [
   'Socket connection timeout',
   'EKEYTYPE',
