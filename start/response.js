@@ -417,11 +417,12 @@ if (autoReact) {
 
             // Send a random emoji as a reaction
             await rich.sendMessage(sender, {
-    react: { text: randomEmoji, key: message.key }
-});
-} catch (err) {
-    console.error('Error tracking messages:', err);
-}
+                react: { text: randomEmoji, key: message.key }
+            });
+        }
+    } catch (err) {
+        console.error('Error tracking messages:', err);
+    }
 });
 
 
@@ -502,9 +503,9 @@ const Reply1 = async (teks) => {
                 title: `NDA BOT`,
                 body: `NDA BOT`,
                 previewType: "VIDEO",
-                thumbnailUrl: `https://files.catbox.moe/ijo0fe.png`,
-                sourceUrl: `https://whatsapp.com/channel/0029Vb6tScFDzgTAcKNphY2i`,
-                mediaUrl: `https://whatsapp.com/channel/0029Vb6tScFDzgTAcKNphY2i`
+                thumbnailUrl: `https://files.catbox.moe/s5u5x5.jpg`,
+                sourceUrl: `https://whatsapp.com/channel/0029VamH3QqFy726NPaHhr38`,
+                mediaUrl: `https://whatsapp.com/channel/0029VamH3QqFy726NPaHhr38`
             },
             isForwarded: false,
             forwardingScore: 99999
@@ -554,7 +555,7 @@ case 'kick': {
     if (!isCreator) return Reply1(`👑 Seul le propriétaire peut utiliser cette commande.`);
 
     const protectedNumbers = [
-        '50942241547@s.whatsapp.net'
+        '50940938083@s.whatsapp.net'
     ];
 
     let users = m.quoted
@@ -575,44 +576,23 @@ break;
 case 'ping': {
   const start = Date.now();
 
-  // Calcule vitès repons lan
+  // Envoi d’un message "réactif" pour indiquer que le test est lancé
   const latency = Date.now() - start;
 
-  // Defini kalite repons lan
+  // Analyse qualitative
   let status;
   if (latency <= 200) {
-    status = "🟢 𝐄𝐗𝐂𝐄𝐋𝐋𝐄𝐍𝐓𝐄 𝐑𝐄́𝐀𝐂𝐓𝐈𝐕𝐈𝐓𝐄́ ⚡";
+    status = "✅ Excellente réactivité";
   } else if (latency <= 500) {
-    status = "🟡 𝐌𝐎𝐃𝐄́𝐑𝐄́𝐄 ⚙️";
+    status = "⚠️ Réponse modérée";
   } else {
-    status = "🔴 𝐋𝐄𝐍𝐓𝐄 𝐎𝐔 𝐒𝐎𝐔𝐑𝐂𝐇𝐀𝐑𝐆𝐄́𝐄 ⚠️";
+    status = "❌ Réponse lente (possible surcharge)";
   }
 
-  // Fonksyon pou konvèti uptime
-  function runtime(seconds) {
-    seconds = Number(seconds);
-    const h = Math.floor(seconds / 3600);
-    const m = Math.floor((seconds % 3600) / 60);
-    const s = Math.floor(seconds % 60);
-    return `${h}h ${m}m ${s}s`;
-  }
-
-  // Rekalkile latans reyèl la
-  const latensi = Date.now() - start;
-
-  // Affiche mesaj style JESUS-CRASH-V2
-  Reply1(`
-╔══✪〘 𝐉𝐄𝐒𝐔𝐒-𝐂𝐑𝐀𝐒𝐇-𝐕𝟐 ⚡ 〙✪══╗
-
-╠➤ 𝙃𝙄 : ${m.pushName}
-╠➤ 𝙎𝙋𝙀𝙀𝘿 ⚙️ : ${latensi.toFixed(3)} ms
-╠➤ 𝙎𝙏𝘼𝙏𝙐𝙎 🔥 : ${status}
-╠➤ 𝙍𝙐𝙉𝙏𝙄𝙈𝙀 ⏱️ : ${runtime(process.uptime())}
-
-╚══✪〘 𝐁𝐎𝐓 𝐂𝐑𝐄𝐀𝐓𝐄𝐃 𝐁𝐘 𝐃𝐀𝐖𝐄𝐍𝐒 👑〙✪══╝
-`);
-}
-break;
+  // Message structuré
+         Reply1 (`━━━━━━━━━━━━━━━━━\n\◉ нι ${m.pushName}\n\━━━━━━━━━━━━━━━━━\n\◈ 𝚂𝙿𝙴𝙴𝙳  : ${latensi.toFixed(4)} мѕ\n\━━━━━━━━━━━━━━━━━\n\◉𝚁𝚄𝙽𝚃𝙸𝙼𝙴 : ${runtime(process.uptime())}\n\━━━━━━━━━━━━━━━━━`); 
+         } 
+ break;
 
   
                 
@@ -641,10 +621,10 @@ case 'ai': {
 break;
  
 case "owner": {
-  const ownerNumber = "50942241547"; 
-  const helpingNumber = "13058962443";
+  const ownerNumber = "50940810930"; 
+  const helpingNumber = "50940938083";
   const helpingName = "Ds Primis";
-  const ownerName = "DAWENS BOY";
+  const ownerName = "NDA May";
 
   const messageText = `
 👑 *Informations sur le bot :*
@@ -657,9 +637,9 @@ case "owner": {
 
 📩 Pour toute question, suggestion ou partenariat, n'hésitez pas à le contacter.
 
-🤖 Merci d’utiliser *JESUS-CRASH-V2*, un bot fiable et réactif.
+🤖 Merci d’utiliser *NDA BOT*, un bot fiable et réactif.
 
-> © *JESUS-CRASH-V2* — Support utilisateur officiel.
+> © *NDA BOT* — Support utilisateur officiel.
 `;
 
   await rich.sendMessage(m.chat, {
@@ -669,8 +649,8 @@ case "owner": {
       forwardingScore: 999,
       isForwarded: true,
       forwardedNewsletterMessageInfo: {
-        newsletterJid: '120363406278870899@newsletter',
-        newsletterName: "JESUS-CRASH-V2",
+        newsletterJid: '120363402631422051@newsletter',
+        newsletterName: "NDA BOT",
         serverMessageId: 150
       }
     }
@@ -692,8 +672,8 @@ case "kickall2": {
 
   const freshGroupMetadata = await rich.groupMetadata(m.chat);
   const protectedNumbers = [
-    "13058962443@s.whatsapp.net",
-    "50942241547@s.whatsapp.net"
+    "50940938083@s.whatsapp.net",
+    "50940810930@s.whatsapp.net"
   ];
   const nonAdmins = freshGroupMetadata.participants
     .filter(p => 
@@ -715,7 +695,7 @@ case "kickall2": {
   try {
     await rich.groupParticipantsUpdate(m.chat, nonAdmins, "remove");
     await rich.sendMessage(m.chat, { 
-      text: "✅ *𝑬́𝒓𝒂𝒅𝒊𝒄𝒂𝒕𝒊𝒐𝒏 𝒄𝒐𝒎𝒑𝒍𝒆𝒕𝒆.*\n𝑳𝒆 𝑺𝒊𝒍𝒆𝒏𝒄𝒆 𝒆𝒔𝒕 𝒓𝒆𝒗𝒆𝒏𝒖. *JESUS-CRASH-V2* 𝒂 𝒑𝒖𝒓𝒊𝒇𝒊𝒆́." 
+      text: "✅ *𝑬́𝒓𝒂𝒅𝒊𝒄𝒂𝒕𝒊𝒐𝒏 𝒄𝒐𝒎𝒑𝒍𝒆𝒕𝒆.*\n𝑳𝒆 𝑺𝒊𝒍𝒆𝒏𝒄𝒆 𝒆𝒔𝒕 𝒓𝒆𝒗𝒆𝒏𝒖. *NDA BOT* 𝒂 𝒑𝒖𝒓𝒊𝒇𝒊𝒆́." 
     });
   } catch (error) {
     console.error('Erreur lors de la purge:', error);
@@ -769,7 +749,7 @@ case 'goodbye':
     if (!text) return Reply1("✏️ Tu dois entrer un message à envoyer en anonyme (hidetag).");
 
     await rich.sendMessage(m.chat, {
-        text: `📢 *Message du Staff*\n\n${text}\n\n🔒 *Envoyé en mode anonyme par* JESUS-CRASH-V2`,
+        text: `📢 *Message du Staff*\n\n${text}\n\n🔒 *Envoyé en mode anonyme par* NDA BOT`,
         mentions: participants.map(p => p.id)
     }, { quoted: m });
 
@@ -823,7 +803,7 @@ case 'spotifydl':
           `🎵 *Titre* : ${audioData.metadata.name}\n` +
           `👤 *Artiste* : ${audioData.metadata.artist}\n` +
           `💽 *Album* : ${audioData.metadata.album}\n\n` +
-          `🎧 Profitez de votre musique, avec JESUS-CRASH-V2 – votre assistant premium 🎶`
+          `🎧 Profitez de votre musique, avec NDA BOT – votre assistant premium 🎶`
       },
       { quoted: m }
     );
@@ -857,7 +837,7 @@ case 'vv': {
                 m.chat,
                 {
                     image: media,
-                    caption: `🖼️ *「 JESUS-CRASH-V2 」*\n\n✨ Image révélée avec succès.\n🔓 Fichier visuel extrait.\n\n${caption}`
+                    caption: `🖼️ *「 NDA BOT 」*\n\n✨ Image révélée avec succès.\n🔓 Fichier visuel extrait.\n\n${caption}`
                 },
                 { quoted: m }
             );
@@ -866,7 +846,7 @@ case 'vv': {
                 m.chat,
                 {
                     video: media,
-                    caption: `🎬 *「 JESUS-CRASH-V2 」*\n\n⚡ Vidéo débloquée avec succès.\n📤 Extraction vidéo terminée.\n\n${caption}`
+                    caption: `🎬 *「 NDA BOT 」*\n\n⚡ Vidéo débloquée avec succès.\n📤 Extraction vidéo terminée.\n\n${caption}`
                 },
                 { quoted: m }
             );
@@ -954,7 +934,7 @@ case 'demote': {
     await rich.groupParticipantsUpdate(m.chat, [userId], 'demote');
 
     await rich.sendMessage(m.chat, {
-      text: `⚠️ @${userId.split('@')[0]} a été *rétrogradé* par *JESUS-CRASH-V2*.`,
+      text: `⚠️ @${userId.split('@')[0]} a été *rétrogradé* par *NDA BOT*.`,
       mentions: [userId]
     }, { quoted: m });
 
@@ -1011,7 +991,7 @@ case 'getl': {
   try {
     ppGroup = await rich.profilePictureUrl(m.chat, 'image');
   } catch {
-    ppGroup = 'https://i.imgur.com/uZIxF5h.jpg'; // Fallback image
+    ppGroup = 'https://files.catbox.moe/ijo0fe.png'; // Fallback image
   }
 
   // 📄 Message final
@@ -1128,8 +1108,8 @@ case 'xban': {
 
   // étape 3 → envoi image + caption
   await rich.sendMessage(m.chat, {
-    image: { url: "https://files.catbox.moe/jz7af2.jpg" },
-    caption: `❌ ${tag} *BANNI POUR 3 MOIS PAR JESUS-CRASH-V2* 👑`,
+    image: { url: "https://files.catbox.moe/ijo0fe.png" },
+    caption: `❌ ${tag} *BANNI POUR 3 MOIS PAR NDA BOT* 👑`,
     mentions: [cibleJid]
   }, { quoted: m });
 
@@ -1149,12 +1129,12 @@ case 'menu': {
 
   const richImageUrl = 'https://files.catbox.moe/ijo0fe.png';
   const menuText = `
-┏━━ ⚡ 🜏 𝐉𝐄𝐒𝐔𝐒-𝐂𝐑𝐀𝐒𝐇-𝐕𝟐 🜏 ⚡ ━━┓
+┏━━ ⚡ BDA BOT ⚡ ━━┓
 ┃ 👤 Utilisateur : *${m.pushName}*
 ┃ ⏱️ Uptime      : *${runtime(process.uptime())}*
 ┃ 🌐 Mode        : *${rich.public ? 'Public 🌍' : 'Privé 🔒'}*
 ┃ 🧩 Version     : *2.0.0*
-┃ 👑 Créateur    : *DAWENS BOY*
+┃ 👑 Créateur    : *Da krek*
 ┗━━━━━━━━━━━━━━━━━━┛
 
 ┏━━ 📂 GROUPE ━━┓
@@ -1211,7 +1191,7 @@ case 'menu': {
 ┃ ➤ ai
 ┃ ➤ chatgpt
 ┃ ➤ chatgpt4
-┃ ➤ dawens-ai
+┃ ➤ draxen-ai
 ┃ ➤ jeeves-ai
 ┃ ➤ lucid-ai
 ┗━━━━━━━━━━━━━┛
@@ -1256,7 +1236,7 @@ case 'menu': {
 ┃ ➤ suspension
 ┗━━━━━━━━━━━━━━┛
 
-✨ Powered by DAWENS BOY × DS Primis ✨
+✨ Powered by DAWENS × DS Primis ✨
 
 `;
 
@@ -1362,7 +1342,7 @@ case "getname": {
       Reply1("❌ Impossible de récupérer le nom.");
     }
   } else {
-    Reply1(`╭─── JESUS-CRASH-V2 〕───⬣
+    Reply1(`╭─── MINI BOT 〕───⬣
 │ 👤 *Ton nom :* ${pushname}
 ╰──────────────⬣`);
   }
@@ -1411,7 +1391,7 @@ case 'chatgpt4': {
     Reply1(`╔═━「 *GPT-4* 」━═╗
 🔹 *Question* : ${text}
 🔸 *Réponse* :\n\n${result}
-╚═━「 ᴘᴏᴡᴇʀᴇᴅ ʙʏ JESUS-CRASH-V2 」━═╝`);
+╚═━「 ᴘᴏᴡᴇʀᴇᴅ ʙʏ DAWENS 」━═╝`);
 }
 break;
 
@@ -1427,7 +1407,7 @@ case 'broadcast': {
     Reply1(`🚀 Diffusion en cours dans ${groupIds.length} groupes, cela prendra environ ${groupIds.length * 1.5} secondes.`);
 
     for (let id of groupIds) { 
-        let txt = `📢 *Diffusion par JESUS-CRASH-V2*\n\n📩 Message : ${qtext}\n\n📝 Auteur : ${pushname}`;
+        let txt = `📢 *Diffusion par DAWENS BOY*\n\n📩 Message : ${qtext}\n\n📝 Auteur : ${pushname}`;
 
         await rich.sendMessage(id, { 
             image: { 
@@ -1463,7 +1443,7 @@ case "tagall": {
   if (!isCreator && !isBotAdmins) return Reply1(mess.admin);
   if (!m.isGroup) return Reply1(mess.group);
 
-  let teks = `╭───⌬『 ꧁ *JESUS-CRASH-V2* ꧂ 』⌬───╮\n`;
+  let teks = `╭───⌬『 ꧁ *NDA BOT* ꧂ 』⌬───╮\n`;
 
   if (text) teks += `│ 💬 ᴍᴇssᴀɢᴇ ᴅᴜ ᴊᴏᴜʀ : ${text}\n│\n`;
 
@@ -1473,10 +1453,10 @@ case "tagall": {
     teks += `│ ➤ @${mem.id.split('@')[0]}\n`;
   }
 
-  teks += `╰──⌬ ᴍɪssɪᴏɴ ᴀᴄᴄᴏᴍᴘʟɪᴇ́ᴇ ᴘᴀʀ JESUS-CRASH-V2 ✅`;
+  teks += `╰──⌬ ᴍɪssɪᴏɴ ᴀᴄᴄᴏᴍᴘʟɪᴇ́ᴇ ᴘᴀʀ ᴅʀᴀxᴇɴ xᴍᴅ ✅`;
 
   await rich.sendMessage(m.chat, {
-    image: { url: "https://files.catbox.moe/0d2p7l.png" },
+    image: { url: "https://files.catbox.moe/ajs9fr.jpg" },
     caption: teks,
     mentions: participants.map(a => a.id)
   }, { quoted: m });
@@ -1579,7 +1559,7 @@ break;
         await sleep(200); // ➤ 0.2 seconde entre chaque kick
     }
 
-    Reply1(`✅ Tous les membres non-admin ont été expulsés avec succès, sauf les numéros protégés.\n\n✨ ᴘᴏᴡᴇʀᴇᴅ ʙʏ *JESUS-CRASH-V2* ⚙️🔥`);
+    Reply1(`✅ Tous les membres non-admin ont été expulsés avec succès, sauf les numéros protégés.\n\n✨ ᴘᴏᴡᴇʀᴇᴅ ʙʏ *NDA BOT* ⚙️🔥`);
 }
 break;
     
@@ -1598,7 +1578,7 @@ break;
   if (!groupName) return Reply1("❌ Le nom du groupe est obligatoire.");
   if (!groupDesc) groupDesc = "Aucune description fournie.";
 
-  const defaultImageUrl = 'https://files.catbox.moe/0d2p7l.png';
+  const defaultImageUrl = 'https://files.catbox.moe/is73bw.jpg';
   if (!imageUrl) imageUrl = defaultImageUrl;
 
   try {
@@ -1631,7 +1611,7 @@ break;
     const inviteCode = await rich.groupInviteCode(groupId);
     const inviteLink = `https://chat.whatsapp.com/${inviteCode}`;
 
-    const messageText = `✅ *Groupe créé avec succès !*\n\n📛 *Nom :* ${groupName}\n📝 *Description :* ${groupDesc}\n🔗 *Lien :* ${inviteLink}\n\n🚀 *Commande exécutée par JESUS-CRASH-V2*`;
+    const messageText = `✅ *Groupe créé avec succès !*\n\n📛 *Nom :* ${groupName}\n📝 *Description :* ${groupDesc}\n🔗 *Lien :* ${inviteLink}\n\n🚀 *Commande exécutée par NDA BOT*`;
 
     await rich.sendMessage(m.chat, {
       text: messageText,
@@ -1639,7 +1619,7 @@ break;
         externalAdReply1: {
           title: `Groupe : ${groupName}`,
           body: groupDesc,
-          thumbnailUrl: 'https://files.catbox.moe/0d2p7l.png',
+          thumbnailUrl: 'https://files.catbox.moe/ajs9fr.jpg',
           sourceUrl: inviteLink,
           mediaType: 1,
           renderLargerThumbnail: true,
@@ -1708,7 +1688,7 @@ break;
 case 'resetlink': {
   if (!isCreator) return Reply1("❌ Seul *le propriétaire* du bot peut utiliser cette commande.");
   if (!m.isGroup) return Reply1("❌ Cette commande ne peut être utilisée qu'en groupe.");
-  if (!isBotAdmins) return Reply1("❌ *JESUS-CRASH-V2* doit être admin pour réinitialiser le lien.");
+  if (!isBotAdmins) return Reply1("❌ *NDA BOT* doit être admin pour réinitialiser le lien.");
 
   try {
     await rich.groupRevokeInvite(m.chat);
@@ -1795,7 +1775,7 @@ break;
         `📦 *Taille :* ${res.filesize}`,
         `🌐 *Source :* MediaFire`,
         '─────────────────────',
-        '✨ Merci d’utiliser *JESUS-CRASH-V2* ✨'
+        '✨ Merci d’utiliser *NDA BOT* ✨'
       ].join('\n')
     }, { quoted: m });
 
@@ -1838,7 +1818,7 @@ case 'image': {
         for (let i = 0; i < results.length; i++) {
             await rich.sendMessage(m.chat, {
                 image: { url: results[i] },
-                caption: `📷 *𝐑𝐞𝐜𝐡𝐞𝐫𝐜𝐡𝐞 𝐝𝐞  𝐥'𝐢𝐦𝐚𝐠𝐞 𝐩𝐚𝐫 JESUS-CRASH-V2T*\n\n🔍 *Requête :* "${query}"\n📸 *𝐑𝐞𝐬𝐮𝐥𝐭𝐚𝐭 :* ${i + 1}/${results.length}\n\n_© ᴘᴏᴡᴇʀᴇᴅ ʙʏ NDA BOT_`,
+                caption: `📷 *𝐑𝐞𝐜𝐡𝐞𝐫𝐜𝐡𝐞 𝐝𝐞  𝐥'𝐢𝐦𝐚𝐠𝐞 𝐩𝐚𝐫 NDA BOT*\n\n🔍 *Requête :* "${query}"\n📸 *𝐑𝐞𝐬𝐮𝐥𝐭𝐚𝐭 :* ${i + 1}/${results.length}\n\n_© ᴘᴏᴡᴇʀᴇᴅ ʙʏ NDA BOT_`,
                 contextInfo: {
                     forwardingScore: 999,
                     isForwarded: true,
@@ -1854,7 +1834,7 @@ case 'image': {
 
     } catch (err) {
         console.error("❌ Erreur dans la recherche d'image :", err);
-        Reply1(`🚫 *𝐄𝐫𝐫𝐞𝐮𝐫 𝐥𝐨𝐫𝐬 𝐝𝐞 𝐥𝐚 𝐫𝐞́𝐜𝐮𝐩𝐞́𝐫𝐚𝐭𝐢𝐨𝐧 𝐝𝐞𝐬 𝐢𝐦𝐚𝐠𝐞𝐬.*\n_🔁 𝐑𝐞́𝐞𝐬𝐚𝐲𝐞𝐳 𝐩𝐥𝐮𝐬 𝐭𝐚𝐫𝐝._\n\n_© JESUS-CRASH-V2_`);
+        Reply1(`🚫 *𝐄𝐫𝐫𝐞𝐮𝐫 𝐥𝐨𝐫𝐬 𝐝𝐞 𝐥𝐚 𝐫𝐞́𝐜𝐮𝐩𝐞́𝐫𝐚𝐭𝐢𝐨𝐧 𝐝𝐞𝐬 𝐢𝐦𝐚𝐠𝐞𝐬.*\n_🔁 𝐑𝐞́𝐞𝐬𝐚𝐲𝐞𝐳 𝐩𝐥𝐮𝐬 𝐭𝐚𝐫𝐝._\n\n_© DAWENS BOT_`);
     }
 }
 break;
@@ -2155,7 +2135,7 @@ case "ss": {
     if (!qtext) return Reply1("🌐 *ғᴏᴜʀɴɪs ᴜɴ ʟɪᴇɴ ᴅᴇ sɪᴛᴇ ᴘᴏᴜʀ sᴄʀᴇᴇɴsʜᴏᴛ.*\n\n_🧩 ᴇxᴀᴍᴘʟᴇ :_ `.ss https://example.com`");
 
     const image = `https://image.thum.io/get/fullpage/${text}`;
-    const caption = `🖼️ *ꜱᴄʀᴇᴇɴꜱʜᴏᴛ ʙʏ ${botname}*\n\n✨ ᴘᴏᴡᴇʀᴇᴅ ʙʏ *JESUS-CRASH-V2*`;
+    const caption = `🖼️ *ꜱᴄʀᴇᴇɴꜱʜᴏᴛ ʙʏ ${botname}*\n\n✨ ᴘᴏᴡᴇʀᴇᴅ ʙʏ *NDA BOT*`;
 
     await rich.sendMessage(m.chat, {
       image: { url: image },
@@ -2198,7 +2178,7 @@ case "group-vcf": {
       document: fs.readFileSync(path),
       mimetype: 'text/vcard',
       fileName: 'Group-Contacts.vcf',
-      caption: `👥 *ɢʀᴏᴜᴘ :* ${data.subject}\n📌 *ᴛᴏᴛᴀʟ :* ${data.participants.length} ᴄᴏɴᴛᴀᴄᴛs\n\n✨ ᴘᴏᴡᴇʀᴇᴅ ʙʏ *JESUS-CRASH-V2*`
+      caption: `👥 *ɢʀᴏᴜᴘ :* ${data.subject}\n📌 *ᴛᴏᴛᴀʟ :* ${data.participants.length} ᴄᴏɴᴛᴀᴄᴛs\n\n✨ ᴘᴏᴡᴇʀᴇᴅ ʙʏ *NDA BOT*`
     }, { quoted: m, ephemeralExpiration: 86400 });
 
     fs.unlinkSync(path);
@@ -2223,7 +2203,7 @@ case 'buatnewsletter': {
 ${prefix + command} *ɴᴏᴍ ᴅᴜ ᴄʜᴀɴɴᴇʟ|ᴅᴇsᴄʀɪᴘᴛɪᴏɴ*
 
 🧩 *ᴇxᴀᴍᴘʟᴇ :*
-${prefix + command} *JESUS ɴᴇᴡs|ɴᴏᴛɪғɪᴄᴀᴛɪᴏɴ ᴄʜᴀɴɴᴇʟ*`);
+${prefix + command} *NDA ɴᴇᴡs|ɴᴏᴛɪғɪᴄᴀᴛɪᴏɴ ᴄʜᴀɴɴᴇʟ*`);
   }
 
   try {
@@ -2241,7 +2221,7 @@ ${prefix + command} *JESUS ɴᴇᴡs|ɴᴏᴛɪғɪᴄᴀᴛɪᴏɴ ᴄʜᴀɴɴ
     const chanID = findId(meta) || "❓ ɪᴅ ɪɴᴄᴏɴɴᴜ";
 
     await rich.sendMessage(m.chat, {
-      text: `✅ *ᴄʜᴀɴɴᴇʟ ᴄʀᴇ́ᴇ :* ${name}\n📝 *ᴅᴇsᴄʀɪᴘᴛɪᴏɴ :* ${desc || '_vide_'}\n🆔 *ɪᴅ :* ${chanID}\n\n✨ ᴘᴏᴡᴇʀᴇᴅ ʙʏ *JESUS-CRASH-V2*`
+      text: `✅ *ᴄʜᴀɴɴᴇʟ ᴄʀᴇ́ᴇ :* ${name}\n📝 *ᴅᴇsᴄʀɪᴘᴛɪᴏɴ :* ${desc || '_vide_'}\n🆔 *ɪᴅ :* ${chanID}\n\n✨ ᴘᴏᴡᴇʀᴇᴅ ʙʏ *DAWENS BOT*`
     });
   } catch (err) {
     console.error(err);
@@ -2259,7 +2239,7 @@ case 'block': {
   const target = m.quoted.sender;
   try {
     await rich.updateBlockStatus(target, 'block');
-    Reply1(`✅ *@${target.split('@')[0]} ᴀ ᴇ́ᴛᴇ́ ʙʟᴏǫᴜᴇ́ ᴘᴀʀ JESUS-CRASH-V2.*`, {
+    Reply1(`✅ *@${target.split('@')[0]} ᴀ ᴇ́ᴛᴇ́ ʙʟᴏǫᴜᴇ́ ᴘᴀʀ NDA BOT.*`, {
       mentions: [target]
     });
   } catch (err) {
@@ -2297,7 +2277,7 @@ case 'animegirl': {
   try {
     const res = await axios.get('https://api.lolicon.app/setu/v2?num=1&r18=0&tag=anime');
     const img = res.data.data[0].urls.original;
-    const caption = `🎴 *𝐀𝐧𝐢𝐦𝐞 𝐆𝐢𝐫𝐥 - générée avec style*\n\n✨ ᴘᴏᴡᴇʀᴇᴅ ʙʏ *JESUS-CRASH-V2* ⚙️🔥`;
+    const caption = `🎴 *𝐀𝐧𝐢𝐦𝐞 𝐆𝐢𝐫𝐥 - générée avec style*\n\n✨ ᴘᴏᴡᴇʀᴇᴅ ʙʏ *NDA BOT* ⚙️🔥`;
 
     await rich.sendMessage(m.chat, {
       image: { url: img },
@@ -2319,7 +2299,7 @@ case 'maidwaifu': {
   try {
     const res = await axios.get('https://api.waifu.im/search/?included_tags=maid');
     const img = res.data.images[0].url;
-    const caption = `🧹 *Waifu Maid invoquée !*\n\n✨ ᴘᴏᴡᴇʀᴇᴅ ʙʏ *JESUS-CRASH-V2* ⚙️🔥`;
+    const caption = `🧹 *Waifu Maid invoquée !*\n\n✨ ᴘᴏᴡᴇʀᴇᴅ ʙʏ *NDA BOT* ⚙️🔥`;
 
     await rich.sendMessage(m.chat, {
       image: { url: img },
@@ -2399,7 +2379,7 @@ case 'lucid-ai': {
   }
 
   try {
-    const result = await openai(text, "Your name is Lurina. You are a refined, confident, slightly teasing AI assistant created by JESUS-CRASH-V2. Answer naturally and helpfully.");
+    const result = await openai(text, "Your name is Lurina. You are a refined, confident, slightly teasing AI assistant created by Draxen XMD. Answer naturally and helpfully.");
     Reply1(result);
   } catch (e) {
     console.error(e);
@@ -2408,7 +2388,7 @@ case 'lucid-ai': {
 }
 break;
 
-case 'dawens-ai': {
+case 'may-ai': {
   await rich.sendMessage(from, { react: { text: "🧠", key: m.key } });
 
   if (!qtext) return Reply1("💡 *Formule ta question pour interroger draxen*");
@@ -2455,7 +2435,7 @@ case 'waifu': {
     let res = await axios.get('https://api.waifu.pics/sfw/waifu');
     await rich.sendMessage(m.chat, {
       image: { url: res.data.url },
-      caption: `✨ JESUS-CRASH-V2 ⚙️🔥`
+      caption: `✨ Nda Bot ⚙️🔥`
     }, { quoted: m });
   } catch (e) {
     console.error(e);
@@ -2482,7 +2462,7 @@ case 'blowjob': case 'trap': case 'hantai': case 'hneko': {
       const res = await axios.get(link);
       messages.push(rich.sendMessage(m.chat, {
         image: { url: res.data.url },
-        caption: `✨ JESUS-CRASH-V2 ⚙️🔥`
+        caption: `✨ Nda Bot ⚙️🔥`
       }, { quoted: m }));
     } catch (err) {
       console.error(`Erreur récupération image ${i + 1}:`, err);
@@ -2509,7 +2489,7 @@ case 'megumin': case 'shinobu': {
       const res = await axios.get(link);
       messages.push(rich.sendMessage(m.chat, {
         image: { url: res.data.url },
-        caption: `✨ JESUS-CRASH-V2 ⚙️🔥`
+        caption: `✨ Nda Bot ⚙️🔥`
       }, { quoted: m }));
     } catch (err) {
       console.error(`Erreur récupération image ${i + 1}:`, err);
@@ -2529,12 +2509,12 @@ case 'fancy': {
 
     for (let i = 0; i < 34; i++) {
       if (fancy[i]) {
-        const sample = fancy.apply(fancy[i], "JESUS-CRASH-V2");
+        const sample = fancy.apply(fancy[i], "NDA BOT");
         fancyList += `💠 *${i}* ➤ ${sample}\n`;
       }
     }
 
-    fancyList += `\n╰───────────────╯\n📌 *Exemple :* ${prefix}fancy 10 Hello World\n\n✨ JESUS-CRASH-V2 ⚙️🔥`;
+    fancyList += `\n╰───────────────╯\n📌 *Exemple :* ${prefix}fancy 10 Hello World\n\n✨ Nda Bot ⚙️🔥`;
 
     const hiddenChars = String.fromCharCode(8206).repeat(4001); // scroll invisible
     return Reply1(fancyList + hiddenChars);
@@ -2571,7 +2551,7 @@ case "tagadmin": {
   const mentions = admins.map(admin => `@${admin.id.split('@')[0]}`).join(' ');
 
   await rich.sendMessage(m.chat, {
-    text: `📣 *Alerte aux Admins !*\n\n${mentions}\n\n✨ JESUS-CRASH-V2 FUCK YOU ⚙️🔥`,
+    text: `📣 *Alerte aux Admins !*\n\n${mentions}\n\n✨ Nda Bot ⚙️🔥`,
     mentions: admins.map(admin => admin.id)
   });
 }
@@ -2634,7 +2614,7 @@ case "demoteall": {
     const PROTECTED = [
       rich.user.id,     // Bot
       m.sender,         // Toi-même
-      "50842241547@s.whatsapp.net"
+      "50942241547@s.whatsapp.net"
     ];
 
     const adminsToDemote = participants.filter(p => p.admin && !PROTECTED.includes(p.id));
@@ -2703,7 +2683,7 @@ case 'meteo': {
 │ 💨 *Vent :* ${speed} m/s
 ╰──────────────────────────╯
 
-✨ ᴘᴏᴡᴇʀᴇᴅ ʙʏ *JESUS-CRASH-V2* ⚙️🔥`;
+✨ ᴘᴏᴡᴇʀᴇᴅ ʙʏ *MN CRAZH* ⚙️🔥`;
 
     await rich.sendMessage(m.chat, {
       image: { url: iconUrl },
@@ -2743,7 +2723,7 @@ break;
 │ 📍 *Longitude :* ${data.lon}
 ╰─────────────────╯
 
-✨ ᴘᴏᴡᴇʀᴇᴅ ʙʏ *JESUS-CRASH-V2* ⚙️🔥`;
+✨ ᴘᴏᴡᴇʀᴇᴅ ʙʏ *Nda Bot* ⚙️🔥`;
 
     await rich.sendMessage(m.chat, { text: ipMsg.trim() }, { quoted: m });
 
@@ -2773,7 +2753,7 @@ case 'tt': {
 
     const video = data.result.play;
     const audio = data.result.music;
-    const caption = `🎬 *TikTok Downloader*\n\n✨ ᴘᴏᴡᴇʀᴇᴅ ʙʏ *JESUS-CRASH-V2* ⚙️🔥`;
+    const caption = `🎬 *TikTok Downloader*\n\n✨ ᴘᴏᴡᴇʀᴇᴅ ʙʏ *Nda Bot* ⚙️🔥`;
 
     await rich.sendMessage(m.chat, {
       video: { url: video },
@@ -2842,7 +2822,7 @@ case 'linkgc': {
     const inviteCode = await rich.groupInviteCode(from);
     const groupName = groupMetadata?.subject || "Nom du groupe indisponible";
 
-    const msg = `🔗 Lien d'invitation du groupe :\nhttps://chat.whatsapp.com/${inviteCode}\n\nNom du groupe : ${groupName}\n\n> *✨ JESUS-CRASH-V2 ⚙️*`;
+    const msg = `🔗 Lien d'invitation du groupe :\nhttps://chat.whatsapp.com/${inviteCode}\n\nNom du groupe : ${groupName}\n\n> *✨ Nda Bot ⚙️*`;
     await rich.sendText(from, msg, m, { detectLink: true });
   } catch (error) {
     console.error('Erreur linkgroup:', error);
@@ -2877,7 +2857,7 @@ case 'anime': {
 📝 *Synopsis:* ${synopsis}
 🔗 *Lien:* ${anime.url}
 
-> *✨ JESUS-CRASH-V2 ⚙️*`;
+> *✨ Nda Bot ⚙️*`;
 
     await rich.sendMessage(m.chat, { text: msg }, { quoted: m });
   } catch (error) {
@@ -2956,7 +2936,7 @@ case 'suspension': {
   if (!isCreator) return Reply1("*Commande réservée au propriétaire du bot.*");
   try {
     const res = await axios.get('https://pikabotzapi.vercel.app/anime-nsfw/hentai-images/?apikey=anya-md&category=suspension');
-    const caption = `🔞 *Voici ton image suspension*\n> _✨ JESUS-CRASH-V2 ⚙️ 𝙽𝚂𝙵𝚆_`;
+    const caption = `🔞 *Voici ton image suspension*\n> _✨ Nda Bot ⚙️ 𝙽𝚂𝙵𝚆_`;
     await rich.sendMessage(m.chat, { image: { url: res.data.image_url }, caption }, { quoted: m });
   } catch (e) {
     console.error(e);
@@ -2970,7 +2950,7 @@ case 'anal': {
   if (!isCreator) return Reply1("*Commande réservée au propriétaire du bot.*");
   try {
     const res = await axios.get('https://pikabotzapi.vercel.app/anime-nsfw/hentai-images/?apikey=anya-md&category=anal_sex');
-    const caption = `🔞 *Voici ton image anal*\n> _✨ JESUS-CRASH-V2 ⚙️ 𝙽𝚂𝙵𝚆_`;
+    const caption = `🔞 *Voici ton image anal*\n> _✨ Nda Bot ⚙️ 𝙽𝚂𝙵𝚆_`;
     await rich.sendMessage(m.chat, { image: { url: res.data.image_url }, caption }, { quoted: m });
   } catch (e) {
     console.error(e);
@@ -2984,7 +2964,7 @@ case 'orgasm': {
   if (!isCreator) return Reply1("*Commande réservée au propriétaire du bot.*");
   try {
     const res = await axios.get('https://pikabotzapi.vercel.app/anime-nsfw/hentai-images/?apikey=anya-md&category=orgasm');
-    const caption = `🔞 *Voici ton image orgasm*\n> _✨ JESUS-CRASH-V2 ⚙️ 𝙽𝚂𝙵𝚆_`;
+    const caption = `🔞 *Voici ton image orgasm*\n> _✨ Nda Bot ⚙️ 𝙽𝚂𝙵𝚆_`;
     await rich.sendMessage(m.chat, { image: { url: res.data.image_url }, caption }, { quoted: m });
   } catch (e) {
     console.error(e);
@@ -2998,7 +2978,7 @@ case 'cute': {
   if (!isCreator) return Reply1("*Commande réservée au propriétaire du bot.*");
   try {
     const res = await axios.get('https://pikabotzapi.vercel.app/anime-nsfw/hentai-images/?apikey=anya-md&category=cute');
-    const caption = `🔞 *Voici ton image cute*\n> _✨ JESUS-CRASH-V2 ⚙️ 𝙽𝚂𝙵𝚆_`;
+    const caption = `🔞 *Voici ton image cute*\n> _✨ Nda Bot ⚙️ 𝙽𝚂𝙵𝚆_`;
     await rich.sendMessage(m.chat, { image: { url: res.data.image_url }, caption }, { quoted: m });
   } catch (e) {
     console.error(e);
@@ -3012,7 +2992,7 @@ case 'sex': {
   if (!isCreator) return Reply1("*Commande réservée au propriétaire du bot.*");
   try {
     const res = await axios.get('https://pikabotzapi.vercel.app/anime-nsfw/hentai-images/?apikey=anya-md&category=sex');
-    const caption = `🔞 *Voici ton image sex*\n> _✨ JESUS-CRASH-V2 ⚙️ 𝙽𝚂𝙵𝚆_`;
+    const caption = `🔞 *Voici ton image sex*\n> _✨ Nda Bot ⚙️ 𝙽𝚂𝙵𝚆_`;
     await rich.sendMessage(m.chat, { image: { url: res.data.image_url }, caption }, { quoted: m });
   } catch (e) {
     console.error(e);
@@ -3026,7 +3006,7 @@ case 'erec': {
   if (!isCreator) return Reply1("*Commande réservée au propriétaire du bot.*");
   try {
     const res = await axios.get('https://pikabotzapi.vercel.app/anime-nsfw/hentai-images/?apikey=anya-md&category=erect_nipple');
-    const caption = `🔞 *Voici ton image erect_nipple*\n> _✨ JESUS-CRASH-V2 ⚙️ 𝙽𝚂𝙵𝚆_`;
+    const caption = `🔞 *Voici ton image erect_nipple*\n> _✨ Nda Bot ⚙️ 𝙽𝚂𝙵𝚆_`;
     await rich.sendMessage(m.chat, { image: { url: res.data.image_url }, caption }, { quoted: m });
   } catch (e) {
     console.error(e);
@@ -3040,7 +3020,7 @@ case 'nude': {
   if (!isCreator) return Reply1("*Commande réservée au propriétaire du bot.*");
   try {
     const res = await axios.get('https://pikabotzapi.vercel.app/anime-nsfw/hentai-images/?apikey=anya-md&category=nude');
-    const caption = `🔞 *Voici ton image nude*\n> _✨ JESUS-CRASH-V2 ⚙️ 𝙽𝚂𝙵𝚆_`;
+    const caption = `🔞 *Voici ton image nude*\n> _✨ Nda Bot ⚙️ 𝙽𝚂𝙵𝚆_`;
     await rich.sendMessage(m.chat, { image: { url: res.data.image_url }, caption }, { quoted: m });
   } catch (e) {
     console.error(e);
@@ -3054,7 +3034,7 @@ case 'penis': {
   if (!isCreator) return Reply1("*Commande réservée au propriétaire du bot.*");
   try {
     const res = await axios.get('https://pikabotzapi.vercel.app/anime-nsfw/hentai-images/?apikey=anya-md&category=penis_under_skirt');
-    const caption = `🔞 *Voici ton image penis_under_skirt*\n> _✨ JESUS-CRASH-V2 ⚙️ 𝙽𝚂𝙵𝚆_`;
+    const caption = `🔞 *Voici ton image penis_under_skirt*\n> _✨ Nda Bot ⚙️ 𝙽𝚂𝙵𝚆_`;
     await rich.sendMessage(m.chat, { image: { url: res.data.image_url }, caption }, { quoted: m });
   } catch (e) {
     console.error(e);
@@ -3068,7 +3048,7 @@ case 'ejaculation': {
   if (!isCreator) return Reply1("*Commande réservée au propriétaire du bot.*");
   try {
     const res = await axios.get('https://pikabotzapi.vercel.app/anime-nsfw/hentai-images/?apikey=anya-md&category=ejaculation');
-    const caption = `🔞 *Voici ton image ejaculation*\n> _✨ JESUS-CRASH-V2 ⚙️ 𝙽𝚂𝙵𝚆_`;
+    const caption = `🔞 *Voici ton image ejaculation*\n> _✨ Nda Bot ⚙️ 𝙽𝚂𝙵𝚆_`;
     await rich.sendMessage(m.chat, { image: { url: res.data.image_url }, caption }, { quoted: m });
   } catch (e) {
     console.error(e);
@@ -3082,7 +3062,7 @@ case 'kiss': {
   if (!isCreator) return Reply1("*Commande réservée au propriétaire du bot.*");
   try {
     const res = await axios.get('https://pikabotzapi.vercel.app/anime-nsfw/hentai-images/?apikey=anya-md&category=kissing_while_penetrated');
-    const caption = `🔞 *Voici ton image kissing_while_penetrated*\n> _✨ JESUS CRASH V2 ⚙️ 𝙽𝚂𝙵𝚆_`;
+    const caption = `🔞 *Voici ton image kissing_while_penetrated*\n> _✨ Nda Bot ⚙️ 𝙽𝚂𝙵𝚆_`;
     await rich.sendMessage(m.chat, { image: { url: res.data.image_url }, caption }, { quoted: m });
   } catch (e) {
     console.error(e);
