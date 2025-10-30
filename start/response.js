@@ -417,9 +417,8 @@ if (autoReact) {
 
             // Send a random emoji as a reaction
             await rich.sendMessage(sender, {
-                react: { text: randomEmoji, key: message.key }
-            });
-        }
+    react: { text: randomEmoji, key: message.key }
+});
     } catch (err) {
         console.error('Error tracking messages:', err);
     }
