@@ -400,15 +400,13 @@ buffer = Buffer.concat([buffer, chunk])}
 return buffer
     } 
     
-    client.ev.on('creds.update', saveCreds);
+        client.ev.on('creds.update', saveCreds);
     return client;
 }
-  
-launchBot();
 
 require('./bot');
 
-  const ignoredErrors = [
+const ignoredErrors = [
   'Socket connection timeout',
   'EKEYTYPE',
   'item-not-found',
@@ -418,29 +416,29 @@ require('./bot');
   'Value not found',
 ];
 
-  process.on('unhandledRejection', (reason) => {
-    if (ignoredErrors.some((e) => String(reason).includes(e))) return;
-    console.log('Unhandled Rejection: ', reason);
-  });
+process.on('unhandledRejection', (reason) => {
+  if (ignoredErrors.some((e) => String(reason).includes(e))) return;
+  console.log('Unhandled Rejection: ', reason);
+});
 
-  const originalConsoleError = console.error;
-  console.error = function (message, ...optionalParams) {
-    if (
-      typeof message === 'string' &&
-      ignoredErrors.some((e) => message.includes(e))
-    )
-      return;
-    originalConsoleError.apply(console, [message, ...optionalParams]);
-  };
+const originalConsoleError = console.error;
+console.error = function (message, ...optionalParams) {
+  if (
+    typeof message === 'string' &&
+    ignoredErrors.some((e) => message.includes(e))
+  )
+    return;
+  originalConsoleError.apply(console, [message, ...optionalParams]);
+};
 
-  const originalStderrWrite = process.stderr.write;
-  process.stderr.write = function (message, encoding, fd) {
-    if (
-      typeof message === 'string' &&
-      ignoredErrors.some((e) => message.includes(e))
-    )
-      return;
-    originalStderrWrite.apply(process.stderr, arguments);
-  };
+const originalStderrWrite = process.stderr.write;
+process.stderr.write = function (message, encoding, fd) {
+  if (
+    typeof message === 'string' &&
+    ignoredErrors.some((e) => message.includes(e))
+  )
+    return;
+  originalStderrWrite.apply(process.stderr, arguments);
+};
 
 launchBot();
